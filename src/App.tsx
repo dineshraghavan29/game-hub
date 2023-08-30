@@ -1,12 +1,7 @@
-import "bootstrap/dist/css/bootstrap.css";
-import ListGroup from "./components/ListGroup";
+import { Button } from "@chakra-ui/react";
 
 const App = () => {
-  return (
-    <div>
-      <ListGroup />
-    </div>
-  );
+  return <Button colorScheme="blue">Button</Button>;
 };
 
 export default App;

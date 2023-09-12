@@ -6,6 +6,7 @@ import GenreList from "./components/SideMenu/GenreList";
 import PlatformSelector from "./components/PlatformSelector";
 import { GameQuery } from "./App.types";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 const App = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
@@ -36,6 +37,7 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area="main" paddingX={10}>
+        <GameHeading gameQuery={gameQuery} />
         <HStack spacing={5}>
           <PlatformSelector
             selectedPlatform={gameQuery.platform}

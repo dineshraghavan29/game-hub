@@ -3,19 +3,14 @@ import useGames from "../../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import { Genre } from "../../hooks/Genres.type";
-import { Platform } from "../../hooks/GameGrid.types";
+import { GameQuery } from "../../App.types";
 
 type GameGridProps = {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 };
 
-const GameGrid = ({ selectedGenre, selectedPlatform }: GameGridProps) => {
-  const { data, error, isLoading } = useGames({
-    selectedGenre,
-    selectedPlatform,
-  });
+const GameGrid = ({ gameQuery }: GameGridProps) => {
+  const { data, error, isLoading } = useGames(gameQuery);
   const skeletonList = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (

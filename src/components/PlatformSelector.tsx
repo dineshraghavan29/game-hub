@@ -5,12 +5,12 @@ import { Platform } from "../hooks/GameGrid.types";
 
 type PlatformSelectorProps = {
   selectedPlatform: Platform | null;
-  onSelectParentPlatform: (parentPlatform: Platform) => void;
+  onSelectPlatform: (platform: Platform) => void;
 };
 
 const PlatformSelector = ({
   selectedPlatform,
-  onSelectParentPlatform,
+  onSelectPlatform,
 }: PlatformSelectorProps) => {
   const { data, error } = usePlatforms();
 
@@ -25,7 +25,7 @@ const PlatformSelector = ({
         {data.map((platform) => (
           <MenuItem
             key={platform.id}
-            onClick={() => onSelectParentPlatform(platform)}
+            onClick={() => onSelectPlatform(platform)}
           >
             {platform.name}
           </MenuItem>

@@ -1,22 +1,17 @@
-import { Game, Platform } from "./GameGrid.types";
-import { Genre } from "./Genres.type";
+import { GameQuery } from "../App.types";
+import { Game } from "./GameGrid.types";
 import useData from "./useData";
 
-type UseGamesProps = {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
-};
-
-const useGames = ({ selectedGenre, selectedPlatform }: UseGamesProps) =>
+const useGames = (gameQuery: GameQuery) =>
   useData<Game>(
     "/games",
     {
       params: {
-        genres: selectedGenre?.id,
-        parent_platforms: selectedPlatform?.id,
+        genres: gameQuery.genre?.id,
+        parent_platforms: gameQuery.platform?.id,
       },
     },
-    [selectedGenre?.id, selectedPlatform?.id]
+    [gameQuery]
   );
 
 export default useGames;
